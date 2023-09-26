@@ -1,0 +1,22 @@
+{
+  "left_title": "Get started by editing <code>app/page.tsx</code>",
+  "right_title": "By",
+  "cards": {
+    "docs": {
+      "title": "Docs",
+      "description": "Find in-depth information about Next.js features and API."
+    },
+    "learn": {
+      "title": "Learn",
+      "description": "Learn about Next.js in an interactive course with&nbsp;quizzes!"
+    },
+    "templates": {
+      "title": "Templates",
+      "description": "Explore the Next.js 13 playground."
+    },
+    "deploy": {
+      "title": "Deploy",
+      "description": "Instantly deploy your Next.js site to a shareable URL with Vercel."
+    }
+  }
+}

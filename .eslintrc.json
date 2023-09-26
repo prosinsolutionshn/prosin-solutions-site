@@ -1,0 +1,42 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended", "plugin:perfectionist/recommended-natural"],
+  "plugins": ["prettier", "perfectionist", "unused-imports"],
+  "ignorePatterns": ["**/node_modules/**"],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "internal-pattern": ["@/**"],
+        "newlines-between": "always",
+        "groups": [
+          "react",
+          "next",
+          "components",
+          "images",
+          "hooks",
+          "utils",
+          "builtin",
+          "internal",
+          "internal-type",
+          "external",
+          "external-type",
+          "parent",
+          "siblings"
+        ],
+        "custom-groups": {
+          "value": {
+            "react": ["react", "react-*"],
+            "next": "next/**",
+            "images": ["@/public/**.{png,svg,jpg,jpeg,ico}"],
+            "components": "@/components/**",
+            "hooks": "@/lib/hooks/**",
+            "utils": "@/utils/**"
+          }
+        }
+      }
+    ]
+  }
+}

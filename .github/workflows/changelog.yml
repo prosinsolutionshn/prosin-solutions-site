@@ -1,0 +1,45 @@
+name: Deploy Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  get_version:
+    name: Get tag version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.manage-version.outputs.version }}
+    steps:
+      - name: Parse and save version
+        id: manage-version
+        run: |
+          # Parse version tag
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+
+          # Parse version name
+          VERSION_PARSED=$(basename "$TAG_NAME")
+
+          # Save version to env variable
+          echo "version=$VERSION_PARSED" >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Release in Github
+    needs: get_version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+      - name: Get Changelog Entry
+        id: changelog-manager
+        uses: BinPar/read-conventional-commit-changelog@v2.0.2
+      - name: Create/update release
+        uses: ncipollo/release-action@6c75be85e571768fa31b40abf38de58ba0397db5 # v1
+        with:
+          tag: ${{ github.ref }}
+          name: Release ${{ needs.get_version.outputs.version }}
+          body: ${{ steps.changelog-manager.outputs.version-changelog }}
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
