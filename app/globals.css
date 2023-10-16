@@ -2,21 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --primary-color-50: #ecf4ff;
+    --primary-color-100: #ddeaff;
+    --primary-color-200: #c1d7ff;
+    --primary-color-300: #9bbdff;
+    --primary-color-400: #7496ff;
+    --primary-color-500: #5371ff;
+    --primary-color-600: #3446f7;
+    --primary-color-700: #2836da;
+    --primary-color-800: #232fb0;
+    --primary-color-900: #25318a;
+    --primary-color-950: #040510;
+
+    --secondary-color-50: #eefcfd;
+    --secondary-color-100: #d3f6fa;
+    --secondary-color-200: #adecf4;
+    --secondary-color-300: #75ddeb;
+    --secondary-color-400: #29c0d9;
+    --secondary-color-500: #19a6c1;
+    --secondary-color-600: #1886a2;
+    --secondary-color-700: #1a6c84;
+    --secondary-color-800: #1e586c;
+    --secondary-color-900: #1d4a5c;
+    --secondary-color-950: #0e313e;
+
+    --third-color-50: #fbf9eb;
+    --third-color-100: #f6f0cb;
+    --third-color-200: #eee09a;
+    --third-color-300: #e5c95f;
+    --third-color-400: #dbb234;
+    --third-color-500: #cf9e27;
+    --third-color-600: #af7a1f;
+    --third-color-700: #8c591c;
+    --third-color-800: #75481e;
+    --third-color-900: #643d1f;
+    --third-color-950: #3a1f0e;
+
+    --white-color: rgb(243, 238, 238);
+    --black-color: black;
+
+    --text-primary-color: #ffffff;
+    --text-muted-color: #c1c4c7;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-bg {
+  background: rgb(10, 13, 42);
+  background: -moz-linear-gradient(45deg, rgba(10, 13, 42, 1) 13%, rgba(4, 5, 16, 1) 67%, rgba(20, 24, 59, 1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(10, 13, 42, 1) 13%, rgba(4, 5, 16, 1) 67%, rgba(20, 24, 59, 1) 100%);
+  background: linear-gradient(45deg, rgba(10, 13, 42, 1) 13%, rgba(4, 5, 16, 1) 67%, rgba(20, 24, 59, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0a0d2a",endColorstr="#14183b",GradientType=1);
 }
