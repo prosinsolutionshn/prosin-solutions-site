@@ -17,6 +17,8 @@ import tenthImage from '@/public/gallery/10.jpeg';
 import eleventhImage from '@/public/gallery/11.jpeg';
 import thirteenthImage from '@/public/gallery/13.jpeg';
 import instructor_soldiers from '@/public/gallery/instructor_soldiers.jpeg';
+import woman1 from '@/public/gallery/woman1.jpg';
+import woman2 from '@/public/gallery/woman2.jpg';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Maximize, X } from 'lucide-react';
@@ -31,7 +33,7 @@ import { twMerge } from 'tailwind-merge';
 const photos = [
   {
     classes: 'lg:col-span-2',
-    src: instructor_soldiers.src,
+    src: woman1.src,
   },
 
   {
@@ -62,6 +64,10 @@ const photos = [
     classes: 'lg:col-span-5',
     src: eighthImage.src,
   },
+  {
+    classes: 'lg:col-span-5',
+    src: woman2.src,
+  },
 
   {
     classes: 'lg:col-span-5',
@@ -75,6 +81,11 @@ const photos = [
     classes: 'lg:col-span-5',
     src: thirteenthImage.src,
   },
+  {
+    classes: 'lg:col-span-7',
+    src: instructor_soldiers.src,
+  },
+
   // {
   //   classes: 'lg:col-span-5',
   //   src: fourteenthImage.src,

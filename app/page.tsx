@@ -5,6 +5,7 @@ import ClientsSlider from '@/components/pages/home/client/swiper-js/clients-swip
 import { FadeIn, FadeInStagger, FadeInStaggredChildren } from '@/components/shared/client/framer-motion/fade-in';
 import Framer from '@/components/shared/client/framer-motion/framer';
 import PageAnimationWrapper from '@/components/shared/client/framer-motion/page-wrapper';
+import WhatsappIcon from '@/components/shared/server/icons/whatsapp-icon';
 
 import herobg from '@/public/main_hero_bg.jpeg';
 
@@ -190,23 +191,30 @@ const HomePage: NextPage<Props> = ({}) => {
 
       <section className="py-5 lg:py-10" id="contact">
         <div className="container mx-auto flex flex-col justify-between gap-x-10 gap-y-10 px-5 lg:gap-y-0 lg:px-20 xl:flex-row">
-          <FadeIn as="div" className="flex w-full flex-col gap-y-5 md:h-96 xl:h-auto xl:w-[50%]">
+          <FadeIn as="div" className="flex w-full flex-col gap-y-5 xl:h-auto xl:w-[50%]">
             <h3 className="w-fit border-b-4 border-third-main pb-1 text-2xl font-bold text-custom-white-main lg:text-4xl">Contactanos</h3>
-            <div className="flex flex-col gap-x-5 gap-y-5 lg:flex-row">
+            <div className="flex flex-col flex-wrap gap-x-5 gap-y-5 lg:flex-row">
               <div className="flex grow flex-wrap items-center gap-x-3 lg:w-[40%]">
                 <Mail className="h-12 w-12 text-third-main" />
-                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="">
+                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="mailto:prosinsolutions@gmail.com">
                   prosinsolutions@gmail.com
                 </a>
               </div>
+
               <div className="flex grow flex-wrap items-center gap-x-3 lg:w-[40%]">
                 <Phone className="h-12 w-12 text-third-main" />
-                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="">
+                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="tel:+504-9652-1175">
                   9652-1175
                 </a>
-                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="">
+                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="tel:+504-3391-6322">
                   3391-6322
                 </a>
+              </div>
+              <div className="flex grow flex-wrap items-center gap-x-3 text-lg text-typography-main lg:w-[40%]">
+                <a className="text-lg text-typography-main transition-all duration-300 hover:text-third-main" href="https://wa.me/+50432529163">
+                  <WhatsappIcon className="h-12 fill-third-main" />
+                </a>
+                Tambien puedes contactarnos por Whatsapp
               </div>
             </div>
             <div className="flex grow flex-wrap gap-x-5 gap-y-5">

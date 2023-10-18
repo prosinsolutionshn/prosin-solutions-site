@@ -54,14 +54,12 @@ export default function ContactForm() {
   const handleSubmit = async (values: ContactFormValues, formikHelpers: FormikHelpers<ContactFormValues>) => {
     const data = {
       ...values,
-      avaliability: true,
-      companyId: 4,
       date: new Date(),
       name: values.name + ' ' + values.lastname,
     };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_APP_MAIN_API_URL}/Suggestions/Create`, {
+      const response = await fetch(`api/sendEmail`, {
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
@@ -79,12 +77,12 @@ export default function ContactForm() {
       } else {
         setstate({
           ...state,
-          error: 'Ha ocurrido un error y el servicio de sugerencias no esta disponible.',
+          error: 'Ha ocurrido un error y el servicio de contacto no esta disponible.',
           success: false,
         });
       }
     } catch (error) {
-      setstate({ ...state, error: 'Ha ocurrido un error y el servicio de sugerencias no esta disponible.' });
+      setstate({ ...state, error: 'Ha ocurrido un error y el contacto de sugerencias no esta disponible.' });
     } finally {
       formikHelpers.setSubmitting(false);
       setTimeout(() => {
