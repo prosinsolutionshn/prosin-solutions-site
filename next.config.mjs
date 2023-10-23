@@ -2,10 +2,6 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  cleanDistDir: true,
-  compiler: {
-    removeConsole: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -16,9 +12,6 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  output: 'export',
-  poweredByHeader: false,
-  swcMinify: true,
 };
 
 export default nextConfig;
