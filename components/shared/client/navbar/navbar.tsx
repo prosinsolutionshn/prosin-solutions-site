@@ -6,6 +6,7 @@
 import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import prosinlogo from '@/public/logo-prosin.png';
 
@@ -96,17 +97,19 @@ export default function Navbar() {
     <>
       <header className="fixed left-0 top-0 z-40 w-full bg-primary-main transition-all duration-300">
         <nav className="container mx-auto flex flex-wrap items-center justify-between gap-y-3 px-5 py-3 text-custom-white-main lg:flex-nowrap lg:gap-y-0 2xl:px-20">
-          <Image
-            alt="Prosin Logo"
-            className="h-auto w-[4rem] cursor-pointer"
-            height={512}
-            onClick={() => {
-              handleScroll('hero');
-              setnavState((previous) => ({ ...previous, isOpen: false }));
-            }}
-            src={prosinlogo}
-            width={512}
-          ></Image>
+          <Link href={'/'}>
+            <Image
+              alt="Prosin Logo"
+              className="h-auto w-[4rem] cursor-pointer"
+              height={512}
+              onClick={() => {
+                handleScroll('hero');
+                setnavState((previous) => ({ ...previous, isOpen: false }));
+              }}
+              src={prosinlogo}
+              width={512}
+            ></Image>
+          </Link>
           {navState.isOpen ? (
             <X
               className="h-9 w-9 cursor-pointer text-third-main lg:hidden"
