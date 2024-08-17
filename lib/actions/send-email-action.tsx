@@ -9,7 +9,7 @@ import Nodemailer from 'nodemailer';
 
 export default async function newEmailAction(values: ContactFormValues): Promise<any> {
   try {
-    sendEmail(values);
+    await sendEmail(values);
     return {
       message: 'Correo enviado muchas gracias por contactarnos',
       ok: true,
@@ -22,11 +22,11 @@ export default async function newEmailAction(values: ContactFormValues): Promise
 }
 
 async function sendEmail(data: any) {
-  const emailHtml = render(<NewEmailCustomer clientName={data.name} companyName="Prosin Solutions HN"></NewEmailCustomer>);
-
-  const registeredEmail = render(<CustomerRegisteredEmail {...data}></CustomerRegisteredEmail>);
-
   try {
+    const emailHtml = render(<NewEmailCustomer clientName={data.name} companyName="Prosin Solutions HN"></NewEmailCustomer>);
+
+    const registeredEmail = render(<CustomerRegisteredEmail {...data}></CustomerRegisteredEmail>);
+
     const transportEmail = Nodemailer.createTransport({
       auth: {
         pass: process.env.SMTP_PASSWORD,
@@ -37,18 +37,21 @@ async function sendEmail(data: any) {
       secure: false,
     });
 
-    transportEmail.sendMail({
+    const result = await transportEmail.sendMail({
       from: `"Prosin Solutions HN" <${process.env.SMTP_USER}>`,
       html: emailHtml,
       subject: 'Mensaje de bienvenida',
       to: [data.email, process?.env?.SEND_EMAIL_NOTIFICATIONS_TO as string],
     });
 
-    transportEmail.sendMail({
+    const second = await transportEmail.sendMail({
       from: `"Prosin Solutions HN" <${process.env.SMTP_USER}>`,
       html: registeredEmail,
       subject: 'Nuevo cliente registrado',
       to: process?.env?.SEND_EMAIL_NOTIFICATIONS_TO as string,
     });
+
+    console.log(result);
+    console.log(second);
   } catch (error) {}
 }
