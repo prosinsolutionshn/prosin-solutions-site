@@ -6,6 +6,8 @@ import { FormGroup } from '@/components/shared/client/forms/form-components';
 import { FormNotificacion } from '@/components/shared/client/forms/form-components';
 import { FadeIn } from '@/components/shared/client/framer-motion/fade-in';
 
+import newEmailAction from '@/lib/actions/send-email-action';
+
 import { Formik, FormikHelpers } from 'formik';
 import { twMerge } from 'tailwind-merge';
 import * as Yup from 'yup';
@@ -59,13 +61,7 @@ export default function ContactForm() {
     };
 
     try {
-      const response = await fetch(`api/sendEmail`, {
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
+      const response = await newEmailAction(values);
 
       if (response.ok) {
         setstate({
