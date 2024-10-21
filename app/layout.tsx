@@ -15,7 +15,23 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description:
       'Prosin Solutions Hn es una empresa especializada en la prestacion de servicios de seguridad privada, asesorias y consultorias en seguridad, capacitaciones y entrenamientos en seguridad, investigaciones privadas, entre otros.',
-    keywords: [],
+    keywords: [
+      'seguridad privada',
+      'asesorias en seguridad',
+      'consultorias en seguridad',
+      'capacitaciones en seguridad',
+      'entrenamientos en seguridad',
+      'investigaciones privadas',
+      'seguridad',
+      'empresa de seguridad honduras',
+      'empresa de seguridad privada honduras',
+      'seguridad privada honduras',
+      'asesorias en seguridad honduras',
+      'consultorias en seguridad honduras',
+      'capacitaciones en seguridad honduras',
+      'entrenamientos en seguridad honduras',
+      'investigaciones privadas honduras',
+    ],
     openGraph: {
       alternateLocale: ['en'],
 
